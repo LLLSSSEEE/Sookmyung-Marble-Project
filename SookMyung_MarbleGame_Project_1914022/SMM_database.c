@@ -2,7 +2,7 @@
 //  SMM_database.c
 //  Sookmyung_MarbleGame
 //  Database platform code for storing marble board elements
-//  Created by Sieun Lee on 2023/11/30.
+//  Created by Sieun Lee on 2023/12/07
 //
 
 #include "SMM_common.h"
@@ -17,10 +17,10 @@ typedef struct node{
     void* obj;          //object data
     void* next;         //pointer to the next
     void* prev;         //pointer to the next
-} node_t;
+} node_t; //node 만들기 
 
 
-static node_t* list_database[MAX_LIST];
+static node_t* list_database[MAX_LIST]; //포인터 선언 
 static node_t* listPtr[MAX_LIST];
 static int list_cnt[MAX_LIST];
 

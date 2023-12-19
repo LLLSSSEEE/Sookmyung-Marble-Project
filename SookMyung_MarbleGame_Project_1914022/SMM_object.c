@@ -2,7 +2,7 @@
 //  SMM_node.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/11/30.
+//  Created by Sieun Lee on 2023/12/07.
 //
 
 #include "SMM_common.h"
@@ -28,18 +28,41 @@ char* smmObj_getTypeName(int type)
       return (char*)smmNodeName[type];
 }
 
+typedef enum smmObjType{ //enum 정의 
+        smmObjType_board = 0,
+        smmObjType_card,
+        smmObjType_grade
+} smmObjType_e; //.h로 옮겨야 한다.  
+        
+typedef enum smmObjGrade{ //enum 정의 
+        smmObjGrade_Ap = 0;
+        smmObjGrade_A0,
+        smmObjGrade_Am,
+        smmObjGrade_Bp,
+        smmObjGrade_B0,
+        smmObjGrade_Bm,
+        smmObjGrade_Cp,
+        smmObjGrade_C0,
+        smmObjGrade_Cm,
+} smmObjGrade_e;        
+        
+        
 //1. 구조체 형식 정의
 typedef struct smmObject {
         char name[MAX_CHARNAME];
+        smmObjType_e objType; //enum 새롭게. (위에서 정의해줘야 함) 
         int type;
         int credit;
         int energy;
+        smmObjGrade_e grade; //성적을 가지고 있어야 하니까. 성적을 enum으로 정의. 
 } smmObject_t;
 
-//2. 구조체 배열 변수 정의
-smmObject_t smm_node[MAX_NODE];
 
-static int smmObj_noNode = 0;
+
+//2. 구조체 배열 변수 정의
+
+//static smmObject_t smm_node[MAX_NODE]; //이제 배열 필요 없어짐. 
+//static int smmObj_noNode = 0; 
 
 
 
@@ -58,21 +81,32 @@ static int smmObj_noNode=0;
 
 //3. 관련 함수 변경
 //object generation
-void smmObj_genNode(char* name, int type, int credit, int energy)
+void smmObj_genObject(char* name, smmObjType_e objType, int type, int credit, int energy, smmObjGrade_e grade) //node->Object 로 이름 변경 
 {
 
-    strcpy(smm_node[smmObj_noNode].name, name);
-    smm_node[smmObj_noNode].type = type;
-    smm_node[smmObj_noNode].credit = credit;
-    smm_node[smmObj_noNode].energy = energy;
+    smmObject_t*ptr;
+    
+    ptr = (smmObject_t*)malloc(sizeof(smmObject_t));
+    
+    strcpy(ptr->name, name);
+    ptr->objType = objType;
+    ptr->type = type;
+    ptr->credit = credit;
+    ptr->energy = energy;
+    ptr->grade = grade;
     
     smmObj_noNode++;    
 }
 
+
+
 //3. 관련 함수 변경 
-char* smmObj_getNodeName(int node_nr)
+char* smmObj_getNodeName(void* obj) //void 포인터 
 {
-    return smm_node[node_nr].name;
+    smmObject_t* ptr = (smmObject_t*)obj;
+    
+    return ptr->name; 
+    //return smm_node[node_nr].name;
 }
 
 //3. 관련 함수 변경 
