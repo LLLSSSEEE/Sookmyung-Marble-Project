@@ -2,7 +2,7 @@
 //  SMM_object.h
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/19.
+//  Created by Sieun Lee on 2023/12/20-(3)
 //
 
 #ifndef SMM_object_h
@@ -26,15 +26,15 @@ typedef enum smmObjType {
         } smmObjType_e;
 
 typedef enum smmObjGrade{ //enum Á¤ÀÇ 
-        smmObjGrade_Ap = 0;
-        smmObjGrade_A0,
-        smmObjGrade_Am,
-        smmObjGrade_Bp,
-        smmObjGrade_B0,
-        smmObjGrade_Bm,
-        smmObjGrade_Cp,
-        smmObjGrade_C0,
-        smmObjGrade_Cm,
+        smmObjGrade_Ap = 0,
+        smmObjGrade_A0 = 1,
+        smmObjGrade_Am = 2,
+        smmObjGrade_Bp = 3,
+        smmObjGrade_B0 = 4,
+        smmObjGrade_Bm = 5,
+        smmObjGrade_Cp = 6,
+        smmObjGrade_C0 = 7,
+        smmObjGrade_Cm = 8
 } smmObjGrade_e;         
 
 /* node type :
@@ -68,10 +68,10 @@ void* smmObj_genObject(char* name, smmObjType_e objType, int type, int credit, i
 
 //member retrieving
 char* smmObj_getNodeName(void* obj);
-int smmObj_getNodeType(int type);
-int smmObj_getNodeCredit(int credit);
-int smmObj_getNodeEnergy(int energy);
-int smmObj_getNodeGrade(int grade);
+int smmObj_getNodeType(int* type);
+int smmObj_getNodeCredit(int* credit);
+int smmObj_getNodeEnergy(int* energy);
+int smmObj_getNodeGrade(int* grade);
 
 //element to string
 char* smmObj_getTypeName(int type);

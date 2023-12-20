@@ -2,7 +2,7 @@
 //  main.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/20.
+//  Created by Sieun Lee on 2023/12/20-(3)
 //
 
 
@@ -123,7 +123,7 @@ void generatePlayers(int n, int initEnergy) //generate a new player
          cur_player[i].accumCredit = 0;
          cur_player[i].flag_graduate = 0;
          
-         prinf("player input done\n"); //12.12#######
+         printf("player input done\n"); //12.12#######
      }
 }
 
@@ -160,7 +160,7 @@ void actionNode(int player)
     {
         //case lecture:
         case SMMNODE_TYPE_LECTURE:  
-             if
+             
              cur_player[player].accumCredit += smmObj_getNodeCredit(boardPtr); //cur_player[player].position
              cur_player[player].energy -= smmObj_getNodeEnergy(boardPtr); //cur_player[player].position
              

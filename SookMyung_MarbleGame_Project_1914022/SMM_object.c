@@ -2,7 +2,7 @@
 //  SMM_node.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/20.
+//  Created by Sieun Lee on 2023/12/20-(3)
 //
 
 #include "SMM_common.h"
@@ -85,7 +85,7 @@ static int smmObj_noNode=0;
 
 //3. 관련 함수 변경
 //object generation
-void smmObj_genObject(char* name, smmObjType_e objType, int type, int credit, int energy, smmObjGrade_e grade) //node->Object 로 이름 변경 
+void* smmObj_genObject(char* name, smmObjType_e objType, int type, int credit, int energy, smmObjGrade_e grade) //node->Object 로 이름 변경 
 {
 
     smmObject_t*ptr;
@@ -139,7 +139,7 @@ int smmObj_getNodeCredit(int* credit)
     //return smm_node[node_nr].credit;
 }
 
-int smmObj_getNodeEnergy(int energy)
+int smmObj_getNodeEnergy(int* energy)
 {
     smmObject_t* ptr = (smmObject_t*)energy;
     
@@ -147,7 +147,7 @@ int smmObj_getNodeEnergy(int energy)
     //return smm_node[node_nr].energy;
 }
 
-int smmObj_getNodeGrade(int grade)
+int smmObj_getNodeGrade(int* grade)
 {
     smmObject_t* ptr = (smmObject_t*) grade;
     
