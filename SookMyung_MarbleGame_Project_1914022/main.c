@@ -2,7 +2,7 @@
 //  main.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/19.
+//  Created by Sieun Lee on 2023/12/20.
 //
 
 
@@ -74,7 +74,7 @@ void printGrades(int player)
      for (i=0; i<smmdb_len(LISTNO_OFFSET_GRADE + player); i++)
      {
          gradePtr = smmdb_getData(LISTNO_OFFSET_GRADE + player, i);
-         printf("%s : %i\n", smmObj_getNodeName(gradePtr), smmObj_getNodeGrade(gradePtr)));
+         printf("%s : %i\n", smmObj_getNodeName(gradePtr), smmObj_getNodeGrade(gradePtr));
      }
 }    
 
@@ -159,13 +159,13 @@ void actionNode(int player)
     switch(type)
     {
         //case lecture:
-        case SMMNODE_TYPE_LECTURE:
+        case SMMNODE_TYPE_LECTURE:  
              if
              cur_player[player].accumCredit += smmObj_getNodeCredit(boardPtr); //cur_player[player].position
              cur_player[player].energy -= smmObj_getNodeEnergy(boardPtr); //cur_player[player].position
              
              //garde generation 
-             gradePtr = smmObj_genObject(name, smmObjType_grade, smmObj_getNodeCredit(boardPtr), 0, ???);//#######
+             gradePtr = smmObj_genObject(name, smmObjType_grade, 0, smmObj_getNodeCredit(boardPtr), 0, rand()%9);//#######
              smmdb_addTail(LISTNO_OFFSET_GRADE + player, gradePtr);
              
              break;
