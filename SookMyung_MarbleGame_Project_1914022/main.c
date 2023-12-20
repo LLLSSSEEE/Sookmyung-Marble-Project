@@ -2,7 +2,7 @@
 //  main.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/20-(3)
+//  Created by Sieun Lee on 2023/12/20-(4)
 //
 
 
@@ -13,9 +13,9 @@
 #include "SMM_database.h"
 #include "SMM_common.h"
 
-#define BOARDFILEPATH "marbleBoardConfig.txt"
-#define FOODFILEPATH "marbleFoodConfig.txt"
-#define FESTFILEPATH "marbleFestivalConfig.txt"
+#define BOARDFILEPATH "C:/Users/dltld/OneDrive/2023전프기/Sookmyung-Marble-Project/SookMyung_MarbleGame_Project_1914022/marbleBoardConfig.txt"
+#define FOODFILEPATH "C:/Users/dltld/OneDrive/2023전프기/Sookmyung-Marble-Project/SookMyung_MarbleGame_Project_1914022/marbleFoodConfig.txt"
+#define FESTFILEPATH "C:/Users/dltld/OneDrive/2023전프기/Sookmyung-Marble-Project/SookMyung_MarbleGame_Project_1914022/marbleFestivalConfig.txt"
 
 #define MAX_NODE    100
 
@@ -114,8 +114,8 @@ void generatePlayers(int n, int initEnergy) //generate a new player
          //printf("input done\n : "): //12.12 #######
          
          //set position
-         //player_position[i] = 0;
-         cur_player[i].energy = 0;
+         cur_player[i].position = 0;
+         //cur_player[i].energy = 0;
          
          //set energy
          //player_energy[i] = initEnergy;
