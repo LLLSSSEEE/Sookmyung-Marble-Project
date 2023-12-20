@@ -2,7 +2,7 @@
 //  SMM_database.c
 //  Sookmyung_MarbleGame
 //  Database platform code for storing marble board elements
-//  Created by Sieun Lee on 2023/12/07
+//  Created by Sieun Lee on 2023/12/19.
 //
 
 #include "SMM_common.h"
@@ -17,7 +17,7 @@ typedef struct node{
     void* obj;          //object data
     void* next;         //pointer to the next
     void* prev;         //pointer to the next
-} node_t; //node 만들기 
+} node_t;  //node 만들기 
 
 
 static node_t* list_database[MAX_LIST]; //포인터 선언 
@@ -98,6 +98,7 @@ static int updateIndex(int list_nr)
                 3. make the last node's next pointer to point the new node
                 4. update the index
 */
+
 int smmdb_addTail(int list_nr, void* obj)
 {
     node_t* ndPtr;

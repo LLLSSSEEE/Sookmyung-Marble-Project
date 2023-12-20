@@ -2,7 +2,7 @@
 //  SMM_node.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/07.
+//  Created by Sieun Lee on 2023/12/19.
 //
 
 #include "SMM_common.h"
@@ -23,18 +23,21 @@ static char smmNodeName[SMMNODE_TYPE_MAX][MAX_CHARNAME] = {
        "축제시간"
 };
 
-char* smmObj_getTypeName(int type)
+
+/*char* smmObj_getTypeName(int type)
 {
       return (char*)smmNodeName[type];
-}
+}*/
 
-typedef enum smmObjType{ //enum 정의 
+
+/*typedef enum smmObjType{ //enum 정의 
         smmObjType_board = 0,
         smmObjType_card,
         smmObjType_grade
 } smmObjType_e; //.h로 옮겨야 한다.  
+*/
         
-typedef enum smmObjGrade{ //enum 정의 
+/*typedef enum smmObjGrade{ //enum 정의 
         smmObjGrade_Ap = 0;
         smmObjGrade_A0,
         smmObjGrade_Am,
@@ -45,7 +48,8 @@ typedef enum smmObjGrade{ //enum 정의
         smmObjGrade_C0,
         smmObjGrade_Cm,
 } smmObjGrade_e;        
-        
+*/
+//object.h 로 이동        
         
 //1. 구조체 형식 정의
 typedef struct smmObject {
@@ -95,12 +99,20 @@ void smmObj_genObject(char* name, smmObjType_e objType, int type, int credit, in
     ptr->energy = energy;
     ptr->grade = grade;
     
-    smmObj_noNode++;    
+    return ptr;
+    //smmObj_noNode++;    
 }
 
 
 
 //3. 관련 함수 변경 
+
+char* smmObj_getTypeName(int type)
+{
+      return (char*)smmNodeName[type];
+}
+
+
 char* smmObj_getNodeName(void* obj) //void 포인터 
 {
     smmObject_t* ptr = (smmObject_t*)obj;
@@ -110,19 +122,35 @@ char* smmObj_getNodeName(void* obj) //void 포인터
 }
 
 //3. 관련 함수 변경 
-int smmObj_getNodeType(int node_nr)
+int smmObj_getNodeType(int* type /*원래 node_nr*/)
 {
-     return smm_node[node_nr].type;
+     smmObject_t* ptr = (smmObject_t*)type;
+     
+     return ptr->objType;
+     //return smm_node[node_nr].type;
 }
 
-int smmObj_getNodeCredit(int node_nr)
+ 
+int smmObj_getNodeCredit(int* credit)
 {
-    return smm_node[node_nr].credit;
+    smmObject_t* ptr = (smmObject_t*)credit;
+    
+    return ptr -> credit;
+    //return smm_node[node_nr].credit;
 }
 
-int smmObj_getNodeEnergy(int node_nr)
+int smmObj_getNodeEnergy(int energy)
 {
-    return smm_node[node_nr].energy;
+    smmObject_t* ptr = (smmObject_t*)energy;
+    
+    return ptr -> energy;
+    //return smm_node[node_nr].energy;
 }
 
+int smmObj_getNodeGrade(int grade)
+{
+    smmObject_t* ptr = (smmObject_t*) grade;
+    
+    return ptr -> grade; 
+}
 
