@@ -2,7 +2,7 @@
 //  SMM_database.c
 //  Sookmyung_MarbleGame
 //  Database platform code for storing marble board elements
-//  Created by Sieun Lee on 2023/12/20-(4)
+//  Created by Sieun Lee on 2023/12/21 - final
 //
 
 #include "SMM_common.h"

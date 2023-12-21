@@ -2,7 +2,7 @@
 //  SMM_common.h
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/20-(4)
+//  Created by Sieun Lee on 2023/12/21- final
 //
 
 #ifndef SMM_common_h

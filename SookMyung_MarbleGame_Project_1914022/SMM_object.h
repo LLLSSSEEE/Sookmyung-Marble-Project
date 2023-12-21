@@ -2,7 +2,7 @@
 //  SMM_object.h
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/20-(4)
+//  Created by Sieun Lee on 2023/12/21- final
 //
 
 #ifndef SMM_object_h
@@ -25,6 +25,23 @@ typedef enum smmObjType {
         smmObjType_grade
         } smmObjType_e;
 
+/*typedef enum smmFood {
+        chicken     = 0,
+        beer        = 1,
+        tanghulu    = 2,
+        ramen       = 3,
+        gamjatang   = 4,
+        cupbab      = 5,
+        jajangmyeon = 6,
+        schoolfood  = 7,
+        pasta       = 8,
+        pizza       = 9,
+        hamburger   = 10, 
+        sandwich    = 11,
+        yogurt      = 12,
+        bibimbap    = 13
+        } smmFood_e; */
+        
 typedef enum smmObjGrade{ //enum 정의 
         smmObjGrade_Ap = 0,
         smmObjGrade_A0 = 1,
@@ -35,7 +52,7 @@ typedef enum smmObjGrade{ //enum 정의
         smmObjGrade_Cp = 6,
         smmObjGrade_C0 = 7,
         smmObjGrade_Cm = 8
-} smmObjGrade_e;         
+} smmObjGrade_e;      
 
 /* node type :
     lecture,
@@ -75,6 +92,8 @@ int smmObj_getNodeGrade(int* grade);
 
 //element to string
 char* smmObj_getTypeName(int type);
+
+char* smmObj_getFoodChance(int* energy);
 
 
 #endif /* SMM_object_h */

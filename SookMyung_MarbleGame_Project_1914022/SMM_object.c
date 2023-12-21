@@ -2,7 +2,7 @@
 //  SMM_node.c
 //  SookMyung_MarbleGame
 //
-//  Created by Sieun Lee on 2023/12/20-(4)
+//  Created by Sieun Lee on 2023/12/21 - final
 //
 
 #include "SMM_common.h"
@@ -14,15 +14,41 @@
 #define MAX_NODE        100
 
 static char smmNodeName[SMMNODE_TYPE_MAX][MAX_CHARNAME] = {
-       "강의",
-       "식당",
-       "실험실",
-       "집",
-       "실험실로이동",
-       "음식찬스",
-       "축제시간"
+       "lecture",
+       "restaurant",
+       "laboratory",
+       "home",
+       "gotoLab",
+       "foodChance",
+       "festival"
 };
 
+static char smmFoodCard [14][MAX_CHARNAME] =
+{
+       "chicken",   
+       "beer",        
+       "tanghulu",   
+       "ramen",       
+       "gamjatang",   
+       "cupbab",     
+       "jajangmyeon", 
+       "schoolfood",  
+       "pasta",       
+       "pizza",      
+       "hamburger",   
+       "sandwich",   
+       "yogurt",     
+       "bibimbap"   
+};
+
+static char smmFestival[][MAX_CHARNAME] =
+{
+       "Let's_sing_a song",
+       "Please_say_something_about_your_goals_after_graduation",
+       "What_do_you_want_to_do_when_you_get_home_today?",
+       "Please_tell_us_how_you_feel_about_the_programming_class",
+       "Please_introduce_a_good_restaurant_in_your_neighborhood"
+};
 
 /*char* smmObj_getTypeName(int type)
 {
@@ -50,6 +76,44 @@ static char smmNodeName[SMMNODE_TYPE_MAX][MAX_CHARNAME] = {
 } smmObjGrade_e;        
 */
 //object.h 로 이동        
+
+/*typedef enum smmObjType {
+        smmObjType_board = 0,
+        smmObjType_card,
+        smmObjType_grade
+        } smmObjType_e;
+*/
+        
+/*
+typedef enum smmFood {
+        chicken     = 0,
+        beer        = 1,
+        tanghulu    = 2,
+        ramen       = 3,
+        gamjatang   = 4,
+        cupbab      = 5,
+        jajangmyeon = 6,
+        schoolfood  = 7,
+        pasta       = 8,
+        pizza       = 9,
+        hamburger   = 10, 
+        sandwich    = 11,
+        yogurt      = 12,
+        bibimbap    = 13
+        } smmFood_e; 
+        
+typedef enum smmObjGrade{ //enum 정의 
+        smmObjGrade_Ap = 0,
+        smmObjGrade_A0 = 1,
+        smmObjGrade_Am = 2,
+        smmObjGrade_Bp = 3,
+        smmObjGrade_B0 = 4,
+        smmObjGrade_Bm = 5,
+        smmObjGrade_Cp = 6,
+        smmObjGrade_C0 = 7,
+        smmObjGrade_Cm = 8
+} smmObjGrade_e;   
+*/
         
 //1. 구조체 형식 정의
 typedef struct smmObject {
@@ -61,7 +125,15 @@ typedef struct smmObject {
         smmObjGrade_e grade; //성적을 가지고 있어야 하니까. 성적을 enum으로 정의. 
 } smmObject_t;
 
-
+      
+typedef struct smmFestival {
+        char fes[4][MAX_CHARNAME];
+        /*char fes1[MAX_CHARNAME];
+        char fes2[MAX_CHARNAME];
+        char fes3[MAX_CHARNAME];
+        char fes4[MAX_CHARNAME];
+        char fes5[MAX_CHARNAME]; */
+} smmFestival_name;
 
 //2. 구조체 배열 변수 정의
 
@@ -154,3 +226,10 @@ int smmObj_getNodeGrade(int* grade)
     return ptr -> grade; 
 }
 
+/*
+int smmObj_getFoodChance(int* energy)
+{
+      
+    return energy;
+} 
+*/
